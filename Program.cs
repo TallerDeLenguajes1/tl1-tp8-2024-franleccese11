@@ -114,14 +114,34 @@ do
                 Console.WriteLine("duracion estimada:"+tarea.Duracion);
             }
             break;
-            
+
+            //caso 4
+            case 4:
+                string aguja=null;
+                Console.WriteLine("ingrese la palabra clave de la tarea que busca");
+                aguja = Console.ReadLine();
+                int pertenece = -1;
+                j=0;
+                foreach (Tarea tarea in tareasPendientes)
+                {
+                    
+                    string texto = tarea.Descripcion;
+                    pertenece = texto.IndexOf(aguja,StringComparison.OrdinalIgnoreCase);
+                    if (pertenece >= 0)
+                    {
+                        Console.WriteLine("/*/*/tarea encontrada/*/*/");
+                        Console.WriteLine("ID de la tarea: "+tarea.TareaId);
+                        Console.WriteLine("Descripcion:"+tarea.Descripcion);
+                        Console.WriteLine("duracion: "+tarea.Duracion);
+                        j++;
+                    }   
+                }
+                Console.WriteLine("FIN! se encontraron un total de "+j+" tareas");
+            break;
             default:
             break;
         }
     }
-    
-    
-    
 } while (menu != 0);
 
 
